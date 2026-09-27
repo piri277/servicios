@@ -1,17 +1,22 @@
 # servicios_modelo
 
-A new Flutter project.
+Aplicación Flutter con arquitectura por capas y Riverpod.
 
-## Getting Started
+## Arquitectura por capas
 
-This project is a starting point for a Flutter application.
+La aplicación ya está organizada en capas coherentes:
 
-A few resources to get you started if this is your first Flutter project:
+- `lib/models`: modelos de dominio (`Product`, `Category`, `User`, `Hair`)
+- `lib/services`: capa de acceso a datos y llamadas HTTP
+- `lib/providers`: providers de Riverpod que coordinan estado y carga de datos
+- `lib/views` y `lib/ui`: capa de presentación y widgets reutilizables
 
-- [Learn Flutter](https://docs.flutter.dev/get-started/learn-flutter)
-- [Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Flutter learning resources](https://docs.flutter.dev/reference/learning-resources)
+Esta separación permite que la UI no dependa de la API directa y que el estado quede centralizado en Riverpod.
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## Diagrama C4 nivel 2
+
+Consulta el diagrama Mermaid en [docs/architecture/c4-level-2.md](docs/architecture/c4-level-2.md).
+
+## Pruebas de providers
+
+La suite de pruebas incluye validación de providers para productos y usuarios, comprobando el estado de filtros y datos cargados.
